@@ -48,9 +48,9 @@ describe('CheckoutMapper', () => {
             const checkout = FakerValue.getCheckout();
             const checkoutDto = mapper.parseCheckoutToDto(checkout);
 
-            expect(checkout.getTotalAmount).toEqual(checkoutDto.totalAmount);
-            expect(checkout.getTotalAmountWithDiscount).toEqual(checkoutDto.totalAmountWithDiscount);
-            expect(checkout.getTotalDiscount).toEqual(checkoutDto.totalDiscount);
+            expect(checkout.getTotalAmount).toEqual(checkoutDto.total_amount);
+            expect(checkout.getTotalAmountWithDiscount).toEqual(checkoutDto.total_amount_with_discount);
+            expect(checkout.getTotalDiscount).toEqual(checkoutDto.total_discount);
             expect(checkout.getProducts).toMatchObject(checkoutDto.products);
         });
 

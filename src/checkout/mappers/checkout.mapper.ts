@@ -12,9 +12,9 @@ export class CheckoutMapper {
 
         const checkoutDto = new CheckoutDto();
         checkoutDto.products = this.parseProductsToDto(checkout.getProducts);
-        checkoutDto.totalAmount = checkout.getTotalAmount;
-        checkoutDto.totalAmountWithDiscount = checkout.getTotalAmountWithDiscount;
-        checkoutDto.totalDiscount = checkout.getTotalDiscount;
+        checkoutDto.total_amount = checkout.getTotalAmount;
+        checkoutDto.total_amount_with_discount = checkout.getTotalAmountWithDiscount;
+        checkoutDto.total_discount = checkout.getTotalDiscount;
 
         return checkoutDto;
     }
@@ -38,8 +38,9 @@ export class CheckoutMapper {
         productDto.id = product.getId;
         productDto.discount = product.getDiscount;
         productDto.quantity = product.getQuantity;
-        productDto.unitAmount = product.getUnitAmount;
-        productDto.isGift = product.getIsGift;
+        productDto.unit_amount = product.getUnitAmount;
+        productDto.is_gift = product.getIsGift;
+        productDto.total_amount = product.getTotalAmountWithoutDiscount;
 
         return productDto;
     }

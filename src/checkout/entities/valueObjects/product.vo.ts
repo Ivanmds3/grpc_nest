@@ -3,12 +3,12 @@ export class Product {
         private id: number,
         private quantity: number,
         private unitAmount: number,
-        private discount: number,
+        private percentageDiscount: number,
         private isGift: boolean
     ) { }
-    
+
     get getId(): number {
-         return this.id;
+        return this.id;
     }
 
     get getQuantity(): number {
@@ -20,7 +20,7 @@ export class Product {
     }
 
     get getDiscount(): number {
-        return this.discount;
+        return Math.round(this.getTotalAmountWithoutDiscount * this.percentageDiscount);
     }
 
     get getIsGift(): boolean {
@@ -32,6 +32,6 @@ export class Product {
     }
 
     get getTotalAmountWithDiscount(): number {
-        return ((this.quantity * this.unitAmount) - this.discount);
+        return this.getTotalAmountWithoutDiscount - this.getDiscount;
     }
 }

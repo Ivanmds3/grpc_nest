@@ -18,16 +18,25 @@ export class DiscoutClient implements OnModuleInit {
 
     async getDiscount(productId: number): Promise<DiscoutDto> {
         const response = await this.gitDiscountGrpc(productId);
+        if (!response.percentage) {
+            response.percentage = 0;
+        }
         return new DiscoutDto(response.percentage);
     }
 
     private gitDiscountGrpc(productId: number): Promise<GetDiscountResponse> {
         return new Promise<GetDiscountResponse>((resolver, reject) => {
-            const request = { productID: productId };
-            this.service.getDiscount(request)
-                .subscribe(event => {
-                    resolver(event);
-                });
+            try {
+                const request = { productID: productId };
+                this.service.getDiscount(request)
+                    .subscribe(event => {
+                        resolver(event);
+                    });
+
+            } catch (err) {
+                console.error(err);
+                return resolver({ percentage: 0 });
+            }
         });
     }
 }
