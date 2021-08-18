@@ -1,3 +1,4 @@
+import { CheckoutCreateCommand, ProductItem } from "src/checkout/dtos/commands/checkout-create.command";
 import { Checkout } from "src/checkout/entities/checkout.entity";
 import { Product } from "src/checkout/entities/valueObjects/product.vo";
 
@@ -28,5 +29,18 @@ export class FakerValue {
             products.push(FakerValue.getProduct());
         }
         return products;
+    }
+
+    static getCheckoutCreateCommand(): CheckoutCreateCommand {
+        const command = new CheckoutCreateCommand();
+
+        command.products = new Array<ProductItem>();
+        const item1 = new ProductItem();
+        item1.id = 1;
+        item1.quantity = 1;
+
+        command.products.push(item1);
+
+        return command;
     }
 }
