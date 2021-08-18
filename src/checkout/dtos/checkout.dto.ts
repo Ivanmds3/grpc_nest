@@ -3,9 +3,6 @@ import { ProductDto } from "./product.dto";
 
 export class CheckoutDto {
 
-    @ApiProperty({ type: [ProductDto] })
-    products: ProductDto[];
-
     @ApiProperty()
     total_amount: number;
 
@@ -14,4 +11,7 @@ export class CheckoutDto {
 
     @ApiProperty()
     total_discount: number;
+
+    @ApiProperty({ type: [ProductDto] })
+    products: ProductDto[];
 }

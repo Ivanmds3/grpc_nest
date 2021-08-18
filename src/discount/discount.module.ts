@@ -1,6 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule,  } from "@nestjs/common";
 import { ClientsModule, Transport } from "@nestjs/microservices";
 import { join } from "path";
+import { environment } from "src/environment";
 import { DiscoutClient } from "./discount.client";
 
 @Module({
@@ -11,7 +12,7 @@ import { DiscoutClient } from "./discount.client";
               transport: Transport.GRPC,
               options: {
                 package: 'discount',
-                url: 'localhost:50051',
+                url: environment.discoutServer,
                 protoPath: join(__dirname, 'discount.proto'),
               },
             },

@@ -18,7 +18,12 @@ describe('CheckoutMapper', () => {
         it('Should return productDto from product', () => {
             const product = FakerValue.getProduct();
             const productDto = mapper.parseProductToDto(product);
-            expect(product).toMatchObject(productDto);
+            expect(product.getDiscount).toEqual(productDto.discount);
+            expect(product.getId).toEqual(productDto.id);
+            expect(product.getIsGift).toEqual(productDto.is_gift);
+            expect(product.getQuantity).toEqual(productDto.quantity);
+            expect(product.getTotalAmountWithDiscount).toEqual(productDto.total_amount);
+            expect(product.getUnitAmount).toEqual(productDto.unit_amount);
         });
 
     });
@@ -33,7 +38,7 @@ describe('CheckoutMapper', () => {
         it('Should return productsDto from products', () => {
             const products = FakerValue.getProducts();
             const productsDto = mapper.parseProductsToDto(products);
-            expect(products).toMatchObject(productsDto);
+            expect(products.length).toEqual(productsDto.length);
         });
 
     });
@@ -51,7 +56,7 @@ describe('CheckoutMapper', () => {
             expect(checkout.getTotalAmount).toEqual(checkoutDto.total_amount);
             expect(checkout.getTotalAmountWithDiscount).toEqual(checkoutDto.total_amount_with_discount);
             expect(checkout.getTotalDiscount).toEqual(checkoutDto.total_discount);
-            expect(checkout.getProducts).toMatchObject(checkoutDto.products);
+            expect(checkout.getProducts.length).toEqual(checkoutDto.products.length);
         });
 
     });

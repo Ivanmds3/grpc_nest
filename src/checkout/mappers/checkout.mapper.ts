@@ -40,7 +40,7 @@ export class CheckoutMapper {
         productDto.quantity = product.getQuantity;
         productDto.unit_amount = product.getUnitAmount;
         productDto.is_gift = product.getIsGift;
-        productDto.total_amount = product.getTotalAmountWithoutDiscount;
+        productDto.total_amount = product.getTotalAmountWithDiscount;
 
         return productDto;
     }

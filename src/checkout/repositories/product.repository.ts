@@ -14,13 +14,15 @@ export class ProductRepository implements OnModuleInit {
         const valueFile = await fs.readFileSync(pathFile, 'utf8');
         this.products = JSON.parse(valueFile);
     }
-    
+
     get(id: number): ProductData {
         const products = this.products.filter(p => p.id == id);
-        if(!products || products.length == 0) {
+        if (!products || products.length == 0) {
             throw new Error('product not found');
-        } 
+        }
 
         return products[0];
     }
+
+    getGifts = (): ProductData[] => this.products.filter(p => p.is_gift == true);
 }
