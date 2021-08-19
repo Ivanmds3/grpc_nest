@@ -10,7 +10,7 @@ services:
       - discount_service
     environment: 
       - DATE_BLACK_FRIDAY='2021-08-18'
-      - DISCOUNT_SERVER='discount_service:50051'
+      - DISCOUNT_SERVER=discount_service:50051
     ports:
       - "80:80"
 
