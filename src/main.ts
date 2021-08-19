@@ -14,7 +14,6 @@ function swagger(app: INestApplication) {
   const config = new DocumentBuilder()
     .setTitle('Checkouts')
     .setVersion('1.0')
-    .addTag('checkout')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

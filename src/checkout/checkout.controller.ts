@@ -1,10 +1,11 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
-import { ApiResponse } from "@nestjs/swagger";
+import { ApiResponse, ApiTags } from "@nestjs/swagger";
 import { CheckoutDto } from "./dtos/checkout.dto";
 import { CheckoutCreateCommand } from "./dtos/commands/checkout-create.command";
 import { CheckoutMapper } from "./mappers/checkout.mapper";
 import { CheckoutService } from "./services/checkout.service";
 
+@ApiTags('checkouts')
 @Controller('checkouts')
 export class CheckoutController {
 
