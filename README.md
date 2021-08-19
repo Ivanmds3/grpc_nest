@@ -6,7 +6,7 @@ Projeto para processo seletivo da HASH
 ### Prerequisites
 
 Para executar o projeto serão necessários:
-  - Acesso anternet
+  - Acesso a internet
   - Docker instalado e em execução
 
 
@@ -22,13 +22,13 @@ Para executar o projeto serão necessários:
    ```sh
    docker-compose up -d
    ```
-4. Acessar a url local em sua maquina http:localhost/swagger
+4. Acessar a url local em sua maquina http://localhost/swagger
 
 5. Para utilizar a aplicação seguir o open api(swagger).
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Obs
 
-A aplicação utiliza uma variavel de ambiente com nome DATE_BLACK_FRIDAY que é o dia que ocorrerá a blackfriday
-para mudar esta variável caso queira, em sua maquina local editar o arquivo docker-compose com o valor que deseje.
-Deverá ser seguido o padrão YYYY-MM-DD. Lembre-se que a aplicação utiliza o horário UTC.
+A aplicação utiliza a variável de ambiente DATE_BLACK_FRIDAY com valor do dia da blackfriday.
+Caso deseje mudar o dia da blackfriday deverá ser editado a mesma para o dia desejado.
+O valor da variável deverá seguir o padrão YYYY-MM-DD e não esqueça que a aplicação utiliza o horário UTC.
