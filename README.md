@@ -12,13 +12,13 @@ Para executar o projeto serão necessários:
 
 ### Installation
 
-1. Clone o repositório
+1. Clone ou baixe o repositório
    ```sh
    git clone https://github.com/Ivanmds3/grpc_nest.git
    ```
 2. Acessar a pasta raiz do projeto
    
-3. Executar o comando abaixo, o comando irá criar uma imagem docker e executa-la, este processo pode levar alguns minutos.
+3. Executar o comando abaixo, o comando irá criar uma imagem docker e executa-la, este processo poderá levar alguns minutos.
    ```sh
    docker-compose up -d
    ```
