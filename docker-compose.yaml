@@ -1,6 +1,19 @@
 version: '3.4'
 
 services:
+  checkout_api:
+    image: checkout_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - discount_service
+    environment: 
+      - DATE_BLACK_FRIDAY='2021-08-18'
+      - DISCOUNT_SERVER='discount_service:50051'
+    ports:
+      - "80:80"
+
   discount_service:
     image: hashorg/hash-mock-discount-service
     ports:
