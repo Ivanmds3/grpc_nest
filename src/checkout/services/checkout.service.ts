@@ -1,16 +1,17 @@
 import { Injectable } from "@nestjs/common";
 import { DiscoutClient } from "src/discount/discount.client";
-import { environment } from "src/environment";
 import { CheckoutCreateCommand, ProductItem } from "../dtos/commands/checkout-create.command";
 import { Checkout } from "../entities/checkout.entity";
 import { Product } from "../entities/valueObjects/product.vo";
 import { ProductRepository } from "../repositories/product.repository";
+import { PromotionDayService } from "./promotion-day.service";
 
 @Injectable()
 export class CheckoutService {
     constructor(
         private discountClient: DiscoutClient,
-        private productRepository: ProductRepository) {
+        private productRepository: ProductRepository,
+        private promotionDayService: PromotionDayService) {
     }
 
     async calc(command: CheckoutCreateCommand): Promise<Checkout> {
@@ -44,8 +45,12 @@ export class CheckoutService {
     }
 
     private getGift(): Product {
-        if (environment.isBlackFriday()) {
+        if (this.promotionDayService.isBlackFriday()) {
             const gifts = this.productRepository.getGifts();
+            if (!gifts || gifts.length == 0) {
+                return null;
+            }
+
             const gift = gifts[0];
 
             return new Product(
