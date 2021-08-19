@@ -22,9 +22,9 @@ Para executar o projeto serão necessários:
    ```sh
    docker-compose up -d
    ```
-4. acesso a url local na sua maquina http:localhost/swagger
+4. Acessar a url local em sua maquina http:localhost/swagger
 
-
+5. Para utilizar a aplicação seguir o open api(swagger).
 
 <!-- USAGE EXAMPLES -->
 ## Usage
